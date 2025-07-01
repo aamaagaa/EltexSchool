@@ -53,27 +53,19 @@ void DeleteAbonent() {
   printf("Введите телефон: ");
   tel = GetInfo();
   for (int i = 0; i < NumberOfAbonents; i++) {
-    if (strcmp(name, abonents[i].name) == 0) {
-      if (strcmp(second_name, abonents[i].second_name) == 0) {
-        if (strcmp(tel, abonents[i].tel) == 0) {
-          if (i == NumberOfAbonents - 1) {
-            abonents[i].name[0] = '\0';
-            abonents[i].second_name[0] = '\0';
-            abonents[i].tel[0] = '\0';
-          } else {
-            for (int j = i + 1; j < NumberOfAbonents; j++) {
-              strcpy(abonents[j - 1].name, abonents[j].name);
-              strcpy(abonents[j - 1].second_name, abonents[j].second_name);
-              strcpy(abonents[j - 1].tel, abonents[j].tel);
-            }
-          }
-          NumberOfAbonents--;
-          free(name);
-          free(second_name);
-          free(tel);
-          return;
-        }
+    if (strcmp(name, abonents[i].name) == 0 &&
+        strcmp(second_name, abonents[i].second_name) == 0 &&
+        strcmp(tel, abonents[i].tel) == 0) {
+      for (int j = i + 1; j < NumberOfAbonents; j++) {
+        strcpy(abonents[j - 1].name, abonents[j].name);
+        strcpy(abonents[j - 1].second_name, abonents[j].second_name);
+        strcpy(abonents[j - 1].tel, abonents[j].tel);
       }
+      NumberOfAbonents--;
+      free(name);
+      free(second_name);
+      free(tel);
+      return;
     }
   }
   printf("Абонент не найден\n");
