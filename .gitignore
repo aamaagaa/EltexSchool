@@ -3,4 +3,6 @@
 !*.c
 !*.pdf
 !*.txt
+!*.a
+!*.h
 !.gitignore
