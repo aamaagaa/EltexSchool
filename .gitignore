@@ -5,4 +5,5 @@
 !*.txt
 !*.a
 !*.h
+!*.so
 !.gitignore
