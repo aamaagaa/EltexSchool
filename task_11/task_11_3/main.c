@@ -116,6 +116,7 @@ void clean_mutex(){
   for (int i = 0; i < SHOPS_NUM; i++) {
     pthread_mutex_destroy(&Shops[i].m);
   }
+  pthread_mutex_destroy(&customers_mutex);
 }
 
 void wait_for_threads(){
